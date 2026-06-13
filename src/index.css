@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #070b14;
+  background-color: #0b0f1a;
   color: #e2e8f0;
 }
 
@@ -15,24 +15,24 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d1424;
+  background: #111623;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2a45;
+  background: #2a3352;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
+  background: #818cf8;
 }
 
 .bg-grid-pattern {
-  background-image: linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(129, 140, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #22d3ee, #34d399, #a78bfa);
+  background: linear-gradient(90deg, #818cf8, #2dd4bf, #a78bfa);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

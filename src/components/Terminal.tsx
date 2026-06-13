@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react'
-import { profile } from '../data/profile'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const TYPE_SPEED = 28
 const LINE_PAUSE = 450
 
 export default function Terminal() {
-  const lines = profile.terminalLines
+  const { t, language } = useLanguage()
+  const lines = t.hero.terminalLines
   const [displayed, setDisplayed] = useState<string[]>([])
   const [lineIndex, setLineIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
+
+  useEffect(() => {
+    setDisplayed([])
+    setLineIndex(0)
+    setCharIndex(0)
+  }, [language])
 
   useEffect(() => {
     if (lineIndex >= lines.length) return
@@ -50,15 +57,15 @@ export default function Terminal() {
           const text = displayed[i] ?? ''
           if (!text) return null
           return (
-            <div key={i} className={isCommand ? 'text-slate-200' : 'text-accent-green pl-4'}>
+            <div key={i} className={isCommand ? 'text-slate-200' : 'text-accent-teal pl-4'}>
               {text}
               {i === lineIndex && !isDone && (
-                <span className="inline-block w-2 h-4 ml-0.5 bg-accent-cyan animate-pulse align-middle" />
+                <span className="inline-block w-2 h-4 ml-0.5 bg-accent-indigo animate-pulse align-middle" />
               )}
             </div>
           )
         })}
-        {isDone && <span className="inline-block w-2 h-4 ml-1 bg-accent-cyan animate-pulse align-middle" />}
+        {isDone && <span className="inline-block w-2 h-4 ml-1 bg-accent-indigo animate-pulse align-middle" />}
       </div>
     </div>
   )

@@ -5,14 +5,14 @@ export default {
     extend: {
       colors: {
         bg: {
-          DEFAULT: '#070b14',
-          panel: '#0d1424',
-          card: '#111a2e',
+          DEFAULT: '#0b0f1a',
+          panel: '#111623',
+          card: '#161b2c',
         },
         accent: {
-          cyan: '#22d3ee',
-          green: '#34d399',
-          purple: '#a78bfa',
+          indigo: '#818cf8',
+          teal: '#2dd4bf',
+          violet: '#a78bfa',
         },
       },
       fontFamily: {
@@ -34,7 +34,7 @@ export default {
         },
       },
       backgroundImage: {
-        grid: "linear-gradient(rgba(34,211,238,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.06) 1px, transparent 1px)",
+        grid: "linear-gradient(rgba(129,140,248,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(129,140,248,0.06) 1px, transparent 1px)",
       },
     },
   },

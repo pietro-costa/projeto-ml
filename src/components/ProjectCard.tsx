@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Bot, ShieldAlert, CreditCard, Users, Ship, type LucideIcon } from 'lucide-react'
 import type { Project } from '../data/projects'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const icons: Record<Project['icon'], LucideIcon> = {
   Bot,
@@ -11,28 +12,30 @@ const icons: Record<Project['icon'], LucideIcon> = {
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const { t } = useLanguage()
   const Icon = icons[project.icon]
+  const text = t.projects.items[project.slug]
 
   return (
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className={`group relative flex flex-col rounded-2xl border border-white/5 bg-bg-card p-6 transition-colors hover:border-accent-cyan/40 hover:shadow-xl hover:shadow-accent-cyan/10 ${
-        project.featured ? 'sm:col-span-2 ring-1 ring-accent-purple/30' : ''
+      className={`group relative flex flex-col rounded-2xl border border-white/5 bg-bg-card p-6 transition-colors hover:border-accent-indigo/40 hover:shadow-xl hover:shadow-accent-indigo/10 ${
+        project.featured ? 'sm:col-span-2 ring-1 ring-accent-violet/30' : ''
       }`}
     >
       {project.featured && (
-        <span className="absolute -top-3 left-6 px-3 py-1 text-xs font-mono font-semibold rounded-full bg-accent-purple text-bg">
-          Projeto em destaque
+        <span className="absolute -top-3 left-6 px-3 py-1 text-xs font-mono font-semibold rounded-full bg-accent-violet text-bg">
+          {t.projects.featuredBadge}
         </span>
       )}
 
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-cyan/10 text-accent-cyan ring-1 ring-accent-cyan/20 group-hover:bg-accent-cyan/20 group-hover:scale-110 transition-all">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-indigo/10 text-accent-indigo ring-1 ring-accent-indigo/20 group-hover:bg-accent-indigo/20 group-hover:scale-110 transition-all">
             <Icon className="h-5 w-5" strokeWidth={2} />
           </span>
-          <span className="font-mono text-xs text-accent-green">{project.category}</span>
+          <span className="font-mono text-xs text-accent-teal">{text.category}</span>
         </div>
         <div className="flex gap-3 text-slate-400">
           {project.githubUrl && (
@@ -40,10 +43,10 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-accent-cyan transition-colors"
+              className="hover:text-accent-indigo transition-colors"
               aria-label="Repositório no GitHub"
             >
-              GitHub ↗
+              {t.projects.githubLink}
             </a>
           )}
           {project.demoUrl && (
@@ -51,24 +54,22 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.demoUrl}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-accent-cyan transition-colors"
+              className="hover:text-accent-indigo transition-colors"
               aria-label="Demo do projeto"
             >
-              Demo ↗
+              {t.projects.demoLink}
             </a>
           )}
         </div>
       </div>
 
-      <h3 className="text-xl font-bold mb-2 group-hover:text-accent-cyan transition-colors">
-        {project.title}
-      </h3>
-      <p className="text-slate-300 mb-4 leading-relaxed">{project.description}</p>
+      <h3 className="text-xl font-bold mb-2 group-hover:text-accent-indigo transition-colors">{text.title}</h3>
+      <p className="text-slate-300 mb-4 leading-relaxed">{text.description}</p>
 
       <ul className="space-y-1.5 mb-5 text-sm text-slate-400">
-        {project.highlights.map((h) => (
+        {text.highlights.map((h) => (
           <li key={h} className="flex gap-2">
-            <span className="text-accent-cyan">▸</span>
+            <span className="text-accent-indigo">▸</span>
             <span>{h}</span>
           </li>
         ))}
