@@ -14,7 +14,7 @@ export default function Skills() {
   const { t } = useLanguage()
 
   return (
-    <section id="skills" className="py-24 px-6 bg-bg-panel border-y border-white/5">
+    <section id="skills" className="py-24 px-6 bg-bg-panel border-y border-slate-200">
       <div className="max-w-4xl mx-auto">
         <Reveal>
           <h2 className="font-mono text-sm text-accent-teal mb-2">{t.skills.sectionLabel}</h2>
@@ -26,7 +26,7 @@ export default function Skills() {
             const Icon = categoryIcons[category]
             return (
               <Reveal key={category} delay={i * 0.08}>
-                <div className="bg-bg-card border border-white/5 rounded-2xl p-6 h-full">
+                <div className="bg-bg-card border border-slate-200 shadow-sm rounded-2xl p-6 h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-indigo/10 text-accent-indigo ring-1 ring-accent-indigo/20">
                       <Icon className="h-5 w-5" strokeWidth={2} />
@@ -37,7 +37,7 @@ export default function Skills() {
                     {items.map((item) => (
                       <span
                         key={item}
-                        className="text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300"
+                        className="text-xs font-mono px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600"
                       >
                         {item}
                       </span>

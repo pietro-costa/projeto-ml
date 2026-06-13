@@ -16,17 +16,17 @@ export default function Avatar({ size = 'lg', className = '' }: { size?: keyof t
       animate={{ opacity: 1, scale: 1 }}
       className={`relative shrink-0 ${sizes[size]} ${className}`}
     >
-      <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-accent-indigo via-accent-teal to-accent-violet opacity-60 blur-md" />
+      <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-accent-indigo via-accent-teal to-accent-violet opacity-50 blur-md" />
       {!error ? (
         <img
           src="/foto.jpg"
           alt="Foto de perfil"
           onError={() => setError(true)}
-          className="relative h-full w-full rounded-full object-cover ring-2 ring-white/10"
+          className="relative h-full w-full rounded-full object-cover ring-2 ring-white"
         />
       ) : (
-        <div className="relative h-full w-full rounded-full bg-bg-card ring-2 ring-white/10 flex items-center justify-center">
-          <User className="h-1/2 w-1/2 text-slate-500" strokeWidth={1.5} />
+        <div className="relative h-full w-full rounded-full bg-bg-card ring-2 ring-white flex items-center justify-center shadow-sm">
+          <User className="h-1/2 w-1/2 text-slate-400" strokeWidth={1.5} />
         </div>
       )}
     </motion.div>

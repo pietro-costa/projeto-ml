@@ -7,32 +7,32 @@
 }
 
 body {
-  background-color: #0b0f1a;
-  color: #e2e8f0;
+  background-color: #f8fafc;
+  color: #1e293b;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #111623;
+  background: #eef2f7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a3352;
+  background: #cbd5e1;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
+  background: #4f46e5;
 }
 
 .bg-grid-pattern {
-  background-image: linear-gradient(rgba(129, 140, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(129, 140, 248, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #818cf8, #2dd4bf, #a78bfa);
+  background: linear-gradient(90deg, #4f46e5, #0f766e, #7c3aed);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

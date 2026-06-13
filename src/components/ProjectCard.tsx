@@ -20,12 +20,12 @@ export default function ProjectCard({ project }: { project: Project }) {
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className={`group relative flex flex-col rounded-2xl border border-white/5 bg-bg-card p-6 transition-colors hover:border-accent-indigo/40 hover:shadow-xl hover:shadow-accent-indigo/10 ${
+      className={`group relative flex flex-col rounded-2xl border border-slate-200 bg-bg-card p-6 shadow-sm transition-colors hover:border-accent-indigo/40 hover:shadow-xl hover:shadow-accent-indigo/10 ${
         project.featured ? 'sm:col-span-2 ring-1 ring-accent-violet/30' : ''
       }`}
     >
       {project.featured && (
-        <span className="absolute -top-3 left-6 px-3 py-1 text-xs font-mono font-semibold rounded-full bg-accent-violet text-bg">
+        <span className="absolute -top-3 left-6 px-3 py-1 text-xs font-mono font-semibold rounded-full bg-accent-violet text-white">
           {t.projects.featuredBadge}
         </span>
       )}
@@ -37,7 +37,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           </span>
           <span className="font-mono text-xs text-accent-teal">{text.category}</span>
         </div>
-        <div className="flex gap-3 text-slate-400">
+        <div className="flex gap-3 text-slate-500">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
@@ -64,9 +64,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <h3 className="text-xl font-bold mb-2 group-hover:text-accent-indigo transition-colors">{text.title}</h3>
-      <p className="text-slate-300 mb-4 leading-relaxed">{text.description}</p>
+      <p className="text-slate-600 mb-4 leading-relaxed">{text.description}</p>
 
-      <ul className="space-y-1.5 mb-5 text-sm text-slate-400">
+      <ul className="space-y-1.5 mb-5 text-sm text-slate-500">
         {text.highlights.map((h) => (
           <li key={h} className="flex gap-2">
             <span className="text-accent-indigo">▸</span>
@@ -79,7 +79,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.stack.map((tech) => (
           <span
             key={tech}
-            className="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300"
+            className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-600"
           >
             {tech}
           </span>

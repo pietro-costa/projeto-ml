@@ -29,12 +29,12 @@ export default function Hero() {
       className="relative pt-40 pb-28 px-6 overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid-pattern [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_60%,transparent_100%)]" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-accent-indigo/20 blur-3xl animate-glow" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-accent-indigo/10 blur-3xl animate-glow" />
       <div
         className="pointer-events-none absolute inset-0 transition-opacity duration-300"
         style={{
-          opacity: glow.opacity * 0.15,
-          background: `radial-gradient(600px circle at ${glow.x}% ${glow.y}%, #818cf8, transparent 70%)`,
+          opacity: glow.opacity * 0.12,
+          background: `radial-gradient(600px circle at ${glow.x}% ${glow.y}%, #6366f1, transparent 70%)`,
         }}
       />
 
@@ -61,7 +61,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10"
+          className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10"
         >
           {t.hero.tagline}
         </motion.p>
@@ -83,13 +83,13 @@ export default function Hero() {
         >
           <a
             href="#projetos"
-            className="px-6 py-3 rounded-lg bg-accent-indigo text-bg font-semibold hover:bg-accent-teal transition-colors shadow-lg shadow-accent-indigo/20"
+            className="px-6 py-3 rounded-lg bg-accent-indigo text-white font-semibold hover:bg-accent-teal transition-colors shadow-lg shadow-accent-indigo/20"
           >
             {t.hero.ctaProjects}
           </a>
           <a
             href="#contato"
-            className="px-6 py-3 rounded-lg border border-white/10 text-slate-200 font-semibold hover:border-accent-indigo hover:text-accent-indigo transition-colors"
+            className="px-6 py-3 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:border-accent-indigo hover:text-accent-indigo transition-colors"
           >
             {t.hero.ctaContact}
           </a>

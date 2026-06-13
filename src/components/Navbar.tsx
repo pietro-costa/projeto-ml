@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-bg/90 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/20' : 'bg-transparent'
+        scrolled ? 'bg-bg/90 backdrop-blur-md border-b border-slate-200 shadow-sm shadow-slate-200/50' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
@@ -30,7 +30,7 @@ export default function Navbar() {
           &lt;dev/data&gt;
         </a>
         <div className="flex items-center gap-8">
-          <ul className="hidden sm:flex gap-8 text-sm font-medium text-slate-300">
+          <ul className="hidden sm:flex gap-8 text-sm font-medium text-slate-600">
             {links.map((link) => (
               <li key={link.href}>
                 <a href={link.href} className="hover:text-accent-indigo transition-colors">
