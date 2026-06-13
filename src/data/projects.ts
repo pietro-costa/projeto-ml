@@ -1,3 +1,5 @@
+export type ProjectIcon = 'Bot' | 'ShieldAlert' | 'CreditCard' | 'Users' | 'Ship'
+
 export type Project = {
   slug: string
   title: string
@@ -5,6 +7,7 @@ export type Project = {
   highlights: string[]
   stack: string[]
   category: 'Machine Learning' | 'NLP & LLM'
+  icon: ProjectIcon
   featured?: boolean
   githubUrl?: string
   demoUrl?: string
@@ -23,6 +26,7 @@ export const projects: Project[] = [
     ],
     stack: ['Python', 'LangChain', 'OpenAI API', 'ChromaDB', 'Streamlit'],
     category: 'NLP & LLM',
+    icon: 'Bot',
     featured: true,
     githubUrl: '#',
     demoUrl: '#',
@@ -39,6 +43,7 @@ export const projects: Project[] = [
     ],
     stack: ['Python', 'Scikit-learn', 'XGBoost', 'Pandas', 'Matplotlib'],
     category: 'Machine Learning',
+    icon: 'ShieldAlert',
     githubUrl: '#',
   },
   {
@@ -53,6 +58,7 @@ export const projects: Project[] = [
     ],
     stack: ['Python', 'Scikit-learn', 'Pandas', 'Seaborn'],
     category: 'Machine Learning',
+    icon: 'CreditCard',
     githubUrl: '#',
   },
   {
@@ -67,6 +73,7 @@ export const projects: Project[] = [
     ],
     stack: ['Python', 'Scikit-learn', 'Pandas', 'Plotly'],
     category: 'Machine Learning',
+    icon: 'Users',
     githubUrl: '#',
   },
   {
@@ -81,6 +88,7 @@ export const projects: Project[] = [
     ],
     stack: ['Python', 'Scikit-learn', 'Pandas', 'Matplotlib'],
     category: 'Machine Learning',
+    icon: 'Ship',
     githubUrl: '#',
   },
 ]

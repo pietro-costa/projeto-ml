@@ -1,22 +1,80 @@
+import { useRef, useState, type MouseEvent } from 'react'
+import { motion } from 'framer-motion'
 import { profile } from '../data/profile'
+import Terminal from './Terminal'
 
 export default function Hero() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [glow, setGlow] = useState({ x: 50, y: 50, opacity: 0 })
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = ref.current?.getBoundingClientRect()
+    if (!rect) return
+    setGlow({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+      opacity: 1,
+    })
+  }
+
   return (
-    <section id="topo" className="relative pt-40 pb-28 px-6 overflow-hidden">
+    <section
+      id="topo"
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setGlow((g) => ({ ...g, opacity: 0 }))}
+      className="relative pt-40 pb-28 px-6 overflow-hidden"
+    >
       <div className="absolute inset-0 bg-grid-pattern [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_60%,transparent_100%)]" />
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-accent-cyan/20 blur-3xl animate-glow" />
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+        style={{
+          opacity: glow.opacity * 0.15,
+          background: `radial-gradient(600px circle at ${glow.x}% ${glow.y}%, #22d3ee, transparent 70%)`,
+        }}
+      />
 
       <div className="relative max-w-4xl mx-auto text-center">
-        <p className="font-mono text-sm text-accent-cyan mb-4 animate-fade-up">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="font-mono text-sm text-accent-cyan mb-4"
+        >
           {'// '}{profile.role}
-        </p>
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 animate-fade-up [animation-delay:100ms]">
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6"
+        >
           Olá, eu sou <span className="text-gradient">{profile.name}</span>
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 animate-fade-up [animation-delay:200ms]">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10"
+        >
           {profile.tagline}
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 animate-fade-up [animation-delay:300ms]">
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mb-10"
+        >
+          <Terminal />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-4"
+        >
           <a
             href="#projetos"
             className="px-6 py-3 rounded-lg bg-accent-cyan text-bg font-semibold hover:bg-accent-green transition-colors shadow-lg shadow-accent-cyan/20"
@@ -29,7 +87,7 @@ export default function Hero() {
           >
             Entrar em Contato
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
